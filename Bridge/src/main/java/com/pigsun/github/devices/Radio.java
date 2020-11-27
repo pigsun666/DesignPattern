@@ -1,0 +1,53 @@
+package com.pigsun.github.devices;
+
+/**
+ * @author pigsun
+ */
+public class Radio implements Device{
+    private boolean on = false;
+    private int volume = 30;
+    private int channel = 1;
+
+    public boolean isEnabled() {
+        return on;
+    }
+
+    public void enable() {
+        on = true;
+    }
+
+    public void disable() {
+        on = false;
+    }
+
+    public int getVolume() {
+        return this.volume;
+    }
+
+    public void setVolume(int percent) {
+        if(volume < 0 ){
+            this.volume = 0;
+        }else if(volume > 100){
+            this.volume = 100;
+        }else {
+            this.volume = percent;
+        }
+    }
+
+    public int getChannel() {
+        return this.channel;
+    }
+
+    public void setChannel(int channel) {
+        this.channel = channel;
+    }
+
+    public void printStatus() {
+        System.out.println("------------------------------------");
+        System.out.println("| I'm radio.");
+        System.out.println("| I'm " + (on ? "enabled" : "disabled"));
+        System.out.println("| Current volume is " + volume + "%");
+        System.out.println("| Current channel is " + channel);
+        System.out.println("------------------------------------\n");
+    }
+}
